@@ -6,10 +6,12 @@
     { type: "image",   src: "media/minha-imagem.png",     caption: "Tela de pedidos" }
 */
 window.PROFILE = {
-  name: "João Vitor",
+  name: "João Vitor Lima",
   role: "Desenvolvedor Full Stack",
   tagline: "Construo sistemas que tiram a operação da planilha e colocam o negócio no controle.",
   github: "https://github.com/joaovitordslima14-netizen",
+  whatsapp: "https://wa.me/5551991591976?text=" + encodeURIComponent("Olá João Vitor, vi seu portfólio e gostaria de conversar."),
+  phone: "+55 51 99159-1976",
 };
 
 window.PROJECTS = [
@@ -35,7 +37,7 @@ window.PROJECTS = [
       "Configuração de horários de atendimento",
     ],
     stack: ["Python", "Flask", "Flask-SocketIO", "SQLAlchemy", "PostgreSQL", "Gunicorn", "HTML/CSS/JS"],
-    link: { label: "Ver código no GitHub", url: "https://github.com/joaovitordslima14-netizen/olimpiosapp" },
+    link: null,
     logo: "media/olimpios-logo.png",
     mock: "olimpios",
     media: [],
@@ -48,7 +50,7 @@ window.PROJECTS = [
     summary:
       "Simulador de carreira de futebol: você cria um atleta aos 15 anos, treina, joga partidas 2D, administra finanças e constrói uma lenda temporada após temporada.",
     benefits: [
-      "Jogável direto no navegador, sem instalar nada (desktop e mobile)",
+      "Roda direto no navegador, sem instalar nada (desktop e mobile)",
       "Saves na nuvem com conta, ou offline no próprio dispositivo",
       "Regras de carreira cobertas por testes determinísticos automatizados",
       "Segurança por RLS: cada jogador só acessa os próprios dados",
@@ -62,21 +64,26 @@ window.PROJECTS = [
       "Calendário de competições Sub-13 ao profissional",
     ],
     stack: ["React 19", "TypeScript", "Vite", "Phaser 3", "Supabase", "PostgreSQL", "IndexedDB", "Vitest"],
-    link: { label: "Jogar agora (modo offline)", url: "demos/star-life-legend/" },
+    link: null,
     mock: null,
     media: [
-      { type: "image", src: "media/star-criar.png", caption: "Criação do atleta" },
-      { type: "image", src: "media/star-dia.png", caption: "Painel “Meu dia” com treino e próxima partida" },
+      { type: "image", src: "media/star-dia.png", caption: "Painel “Meu dia”: treino, rotina e próxima partida" },
+      { type: "image", src: "media/star-carreira.png", caption: "Atributos, forma e potencial do atleta" },
       { type: "image", src: "media/star-atleta.png", caption: "Personalização do atleta" },
+      { type: "image", src: "media/star-armario.png", caption: "Armário e loja" },
+      { type: "image", src: "media/star-financas.png", caption: "Finanças: extrato, imóveis e veículos" },
+      { type: "image", src: "media/star-social.png", caption: "Vida social e reputação" },
+      { type: "image", src: "media/star-pessoal.png", caption: "Vida pessoal e comportamento" },
+      { type: "image", src: "media/star-mundo.png", caption: "Mundo: classificação e jogos da liga" },
     ],
   },
   {
     id: "cnsi",
-    title: "CNSI · ControlZinco",
+    title: "Gestão de Produção e Estoque",
     category: "Indústria",
     kind: "Sistema de gestão industrial",
     summary:
-      "Controle operacional de produção e estoque de peças galvanizadas: lotes, pesagens, reservas, clientes, pedidos e etiquetas imprimíveis, com rastreabilidade ponta a ponta.",
+      "Controle operacional de produção e estoque de peças: lotes, pesagens, reservas, clientes, pedidos e etiquetas imprimíveis, com rastreabilidade ponta a ponta.",
     benefits: [
       "Rastreabilidade de cada peça: lote, pesagens, movimentações e reservas",
       "Pedidos com impressão de documento e etiquetas, sem retrabalho manual",

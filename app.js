@@ -6,6 +6,9 @@
   $("#role").textContent = P.role;
   $("#tagline").textContent = P.tagline;
   $("#github").href = P.github;
+  $("#wa").href = $("#wa-float").href = P.whatsapp;
+  $("#phone").textContent = P.phone;
+  $(".brand").title = P.name;
   $("#year").textContent = new Date().getFullYear();
 
   const stack = [...new Set(list.flatMap((p) => p.stack))];
@@ -16,27 +19,56 @@
   ].map(([n, l]) => `<li><b>${n}</b><span>${l}</span></li>`).join("");
   $("#skills").innerHTML = stack.map((s) => `<li>${esc(s)}</li>`).join("");
 
+  const win = (title, body, theme = "") =>
+    `<figure class="shot mockshot"><div class="mock ${theme}"><div class="bar"><i></i><i></i><i></i></div><div class="body">${body}</div></div><figcaption>${esc(title)} · ilustração com dados fictícios</figcaption></figure>`;
+  const table = (head, rows) =>
+    `<table><tr>${head.map((h) => `<th>${h}</th>`).join("")}</tr>${rows.map((r) => `<tr>${r.map((c) => `<td>${c}</td>`).join("")}</tr>`).join("")}</table>`;
+  const kpis = (a) => `<div class="kpis">${a.map(([n, l]) => `<div><b>${n}</b>${l}</div>`).join("")}</div>`;
+  const pill = (t, c) => `<span class="pill ${c}">${t}</span>`;
+  const bars = (a) => a.map(([l, v]) => `<div class="bar-row"><span>${l}</span><div><i style="width:${v}%"></i></div><b>${v}</b></div>`).join("");
+
   const mocks = {
-    olimpios: `<div class="mock dark"><div class="bar"><i></i><i></i><i></i></div><div class="body">
-      <b>Agenda · Segunda a sábado</b>
-      <div class="slots"><div>09:00</div><div class="on">10:00</div><div>11:00</div><div class="on">14:00</div><div>15:00</div><div>16:00</div></div>
-      <table style="margin-top:12px"><tr><th>Horário</th><th>Cliente</th><th>Serviço</th></tr>
-      <tr><td>10:00</td><td>Cliente A</td><td>Corte + barba</td></tr><tr><td>14:00</td><td>Cliente B</td><td>Corte</td></tr></table>
-      <p class="note">Ilustração da interface com dados fictícios.</p></div></div>`,
-    cnsi: `<div class="mock"><div class="bar"><i></i><i></i><i></i></div><div class="body">
-      <div class="kpis"><div><b>128</b>peças em estoque</div><div><b>14</b>reservadas</div><div><b>6</b>pedidos abertos</div></div>
-      <table><tr><th>Peça</th><th>Lote</th><th>Peso</th><th>Status</th></tr>
-      <tr><td>P-0231</td><td>L-18</td><td>12,4 kg</td><td><span class="pill ok">Estoque</span></td></tr>
-      <tr><td>P-0232</td><td>L-18</td><td>11,9 kg</td><td><span class="pill warn">Reservada</span></td></tr>
-      <tr><td>P-0233</td><td>L-19</td><td>13,1 kg</td><td><span class="pill info">Pedido</span></td></tr></table>
-      <p class="note">Ilustração da interface com dados fictícios.</p></div></div>`,
-    inv: `<div class="mock"><div class="bar"><i></i><i></i><i></i></div><div class="body">
-      <b>SystemINV · Histórico</b>
-      <table style="margin-top:8px"><tr><th>Item</th><th>Tipo</th><th>Qtd</th><th>Usuário</th></tr>
-      <tr><td>Parafuso M8</td><td><span class="pill ok">Entrada</span></td><td>200</td><td>admin</td></tr>
-      <tr><td>Luva nitrílica</td><td><span class="pill warn">Baixa</span></td><td>12</td><td>user1</td></tr>
-      <tr><td>Disco de corte</td><td><span class="pill warn">Baixa</span></td><td>5</td><td>user1</td></tr></table>
-      <p class="note">Ilustração da interface com dados fictícios.</p></div></div>`,
+    olimpios: [
+      win("Agendamento do cliente", `<b>Escolha o barbeiro e o horário</b>
+        <div class="field">Barbeiro: <em>Qualquer disponível</em></div>
+        <div class="field">Data: <em>sábado, 10/10</em></div>
+        <div class="slots"><div>09:00</div><div class="on">10:00</div><div>11:00</div><div class="on">14:00</div><div>15:00</div><div>16:00</div></div>
+        <div class="btn-fake">Confirmar agendamento</div><p class="note">Não trabalhamos aos domingos.</p>`, "dark"),
+      win("Painel da barbearia · Agenda", table(["Horário", "Cliente", "Serviço", "Barbeiro", "Origem"], [
+        ["09:00", "Cliente A", "Corte", "Barbeiro 1", pill("Cliente", "info")],
+        ["10:00", "Cliente B", "Corte + barba", "Barbeiro 2", pill("Barbearia", "gold")],
+        ["11:30", "Cliente C", "Barba", "Barbeiro 1", pill("Cliente", "info")],
+        ["14:00", "Cliente D", "Corte", "Barbeiro 2", pill("Cliente", "info")]]), "dark"),
+      win("Relatórios e dashboards", kpis([["142", "atendimentos no mês"], ["3", "barbeiros"], ["68%", "via cliente"]]) +
+        bars([["Corte", 82], ["Barba", 54], ["Corte + barba", 67], ["Sobrancelha", 21]]), "dark"),
+      win("Horários de atendimento", table(["Dia", "Início", "Fim", "Intervalo"], [
+        ["Segunda", "09:00", "19:00", "30 min"], ["Terça", "09:00", "19:00", "30 min"], ["Sábado", "08:00", "17:00", "30 min"], ["Domingo", "—", "—", pill("Fechado", "warn")]]), "dark"),
+    ],
+    cnsi: [
+      win("Painel de produção e estoque", kpis([["128", "peças em estoque"], ["14", "reservadas"], ["6", "pedidos abertos"]]) +
+        table(["Peça", "Lote", "Peso", "Status"], [
+          ["P-0231", "L-18", "12,4 kg", pill("Estoque", "ok")], ["P-0232", "L-18", "11,9 kg", pill("Reservada", "gold")], ["P-0233", "L-19", "13,1 kg", pill("Pedido", "info")]])),
+      win("Lotes e pesagens", table(["Lote", "Peças", "Peso total", "Data"], [
+        ["L-18", "24", "296,5 kg", "08/10"], ["L-19", "30", "381,2 kg", "09/10"], ["L-20", "18", "224,0 kg", "10/10"]]) +
+        `<div class="field" style="margin-top:10px">Repesagem registrada: <em>P-0232 · 11,9 kg → 11,8 kg</em></div>`),
+      win("Clientes e pedidos", table(["Pedido", "Cliente", "Itens", "Status"], [
+        ["#1042", "Cliente A", "8", pill("Em separação", "gold")], ["#1043", "Cliente B", "12", pill("Finalizado", "ok")], ["#1044", "Cliente C", "5", pill("Cancelado", "warn")]]) +
+        `<div class="btn-fake" style="margin-top:10px">Imprimir pedido</div>`),
+      win("Etiquetas", `<div class="label"><b>PEÇA P-0233</b><span>Lote L-19 · 13,1 kg</span><div class="barcode"></div><small>Pedido #1042 · Cliente A</small></div>
+        <div class="label"><b>PEÇA P-0234</b><span>Lote L-19 · 12,7 kg</span><div class="barcode"></div><small>Pedido #1042 · Cliente A</small></div>`),
+    ],
+    inv: [
+      win("Itens em estoque", table(["Código", "Item", "Qtd", "Local"], [
+        ["A-001", "Parafuso M8", "1.240", "Prateleira 2"], ["B-014", "Luva nitrílica", "86", "Armário 1"], ["C-203", "Disco de corte", pill("5 · baixo", "warn"), "Prateleira 4"]])),
+      win("Entrada e baixa de estoque", `<b>Registrar movimentação</b>
+        <div class="field">Item: <em>Disco de corte</em></div><div class="field">Tipo: <em>Baixa</em> · Quantidade: <em>2</em></div>
+        <div class="btn-fake">Confirmar baixa</div><p class="note">Registrada no histórico com data e usuário.</p>`),
+      win("Histórico de movimentações", table(["Item", "Tipo", "Qtd", "Usuário", "Data"], [
+        ["Parafuso M8", pill("Entrada", "ok"), "200", "admin", "10/10"], ["Luva nitrílica", pill("Baixa", "gold"), "12", "user1", "10/10"], ["Disco de corte", pill("Baixa", "gold"), "5", "user1", "09/10"]]) +
+        `<div class="exports"><span>Exportar PDF</span><span>Exportar Excel</span></div>`),
+      win("Gerenciar usuários", table(["Usuário", "Perfil", "Ações"], [
+        ["admin", pill("Admin", "info"), "Redefinir senha"], ["user1", pill("Usuário", "ok"), "Redefinir senha"], ["user2", pill("Usuário", "ok"), "Remover"]])),
+    ],
   };
 
   const mediaHtml = (m) => {
@@ -48,10 +80,11 @@
   const gallery = (p) => {
     const vids = p.media.filter((m) => m.type !== "image");
     const imgs = p.media.filter((m) => m.type === "image");
-    if (!p.media.length) return mocks[p.mock] || "";
+    const m = mocks[p.mock] || [];
     const [first, ...rest] = imgs;
     return vids.map(mediaHtml).join("") + (first ? mediaHtml(first) : "") +
-      (rest.length ? `<div class="thumbs">${rest.map(mediaHtml).join("")}</div>` : "");
+      (rest.length ? `<div class="thumbs">${rest.map(mediaHtml).join("")}</div>` : "") +
+      (m.length ? `<div class="mocks">${m.join("")}</div>` : "");
   };
 
   const render = (cat) => {
@@ -64,7 +97,8 @@
           <p class="summary">${esc(p.summary)}</p>
           <h4>Benefícios</h4>
           <ul class="benefits">${p.benefits.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>
-          <details><summary>Funcionalidades</summary><ul>${p.features.map((f) => `<li>${esc(f)}</li>`).join("")}</ul></details>
+          <h4>Funcionalidades</h4>
+          <ul class="benefits plain">${p.features.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>
           <div class="tags">${p.stack.map((s) => `<span>${esc(s)}</span>`).join("")}</div>
           ${p.link ? `<a class="btn primary" href="${esc(p.link.url)}" target="_blank" rel="noopener">${esc(p.link.label)}</a>` : ""}
         </div>
