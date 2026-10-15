@@ -67,7 +67,7 @@ window.EXPERIENCE = [
 
 window.EDUCATION = [
   { title: "Bacharelado em Ciência de Dados", place: "UniRitter", period: "jun/2025 – 2029 (previsão)", status: "Em andamento", note: "DAX, extração de dados, estatística e matemática" },
-  { title: "Técnico em Desenvolvimento de Sistemas", place: "SENAI-RS", period: "abr/2024 – set/2025", status: "Concluído", note: "React.js, pesquisa qualitativa e mais" },
+  { title: "Técnico em Desenvolvimento de Sistemas", place: "SENAI-RS", period: "abr/2024 – set/2025", status: "Concluído", img: "media/certs/diploma-senai.png", note: "React.js, pesquisa qualitativa e mais" },
   { title: "Ensino Médio", place: "Colégio Estadual Barbosa Rodrigues", period: "mar/2022 – dez/2024", status: "Concluído", note: "" },
 ];
 
@@ -75,32 +75,43 @@ window.SKILLS = {
   main: [
     { name: "Power BI", level: 100 },
     { name: "Python", level: 100 },
-    { name: "Excel", level: 80 },
     { name: "SQL Server", level: 75 },
+    { name: "DAX", level: 75 },
+    { name: "JavaScript", level: 75 },
+    { name: "PostgreSQL", level: 70 },
+    { name: "PHP", level: 65 },
+    { name: "DevOps", level: 65 },
+    { name: "Asterisk", level: 65 },
+    { name: "Cibersegurança", level: 60 },
+    { name: "Big Data", level: 60 },
   ],
   groups: [
     { title: "Dados e BI", items: [
-      { name: "DAX", level: 75 }, { name: "Excel VBA", level: 70 }, { name: "ETL", level: 70 },
-      { name: "MySQL", level: 70 }, { name: "PostgreSQL", level: 70 }, { name: "Power Apps", level: 65 }, { name: "Big Data", level: 60 },
+      { name: "Excel", level: 80 }, { name: "Excel VBA", level: 70 }, { name: "ETL", level: 70 },
+      { name: "MySQL", level: 70 }, { name: "Power Apps", level: 65 },
     ] },
     { title: "Desenvolvimento", items: [
-      { name: "JavaScript", level: 75 }, { name: "HTML e CSS", level: 75 }, { name: "APIs REST", level: 75 },
-      { name: "Node.js", level: 70 }, { name: "React", level: 70 }, { name: "Java", level: 70 }, { name: "C#", level: 70 },
-      { name: "PHP", level: 65 }, { name: "C++", level: 60 },
+      { name: "HTML e CSS", level: 75 }, { name: "APIs REST", level: 75 },
+      { name: "Node.js", level: 70 }, { name: "React", level: 70 }, { name: "Java", level: 70 }, { name: "C#", level: 70 }, { name: "C++", level: 60 },
     ] },
     { title: "Infraestrutura, processos e ferramentas", items: [
-      { name: "Git", level: 75 }, { name: "Scrum e Kanban", level: 70 }, { name: "Linux", level: 65 }, { name: "Asterisk", level: 65 },
-      { name: "DevOps", level: 65 }, { name: "Microsoft Intune", level: 60 }, { name: "Cibersegurança", level: 60 },
+      { name: "Git", level: 75 }, { name: "Scrum e Kanban", level: 70 }, { name: "Linux", level: 65 }, { name: "Microsoft Intune", level: 60 },
     ] },
   ],
-  languages: [{ name: "Inglês", note: "Intermediário (IFSul, módulo 1 concluído)" }, { name: "Português", note: "Nativo" }],
+  languages: [
+    { name: "Português", note: "nativo" },
+    { name: "Inglês", note: "intermediário" },
+    { name: "Espanhol", note: "básico" },
+    { name: "Francês", note: "básico" },
+    { name: "Italiano", note: "básico" },
+  ],
 };
 
 window.CERTIFICATIONS = [
-  { title: "Cybersecurity", issuer: "FIAP · NanoCourse", date: "set/2026", hours: "120 h" },
-  { title: "DevOps e Agile Culture", issuer: "FIAP · NanoCourse", date: "set/2026", hours: "60 h" },
-  { title: "Gestão de Infraestrutura de T.I", issuer: "FIAP · NanoCourse", date: "set/2026", hours: "20 h" },
-  { title: "Power BI for Business 2.0", issuer: "Data Mundo", date: "jan/2024", hours: "" },
-  { title: "Big Data Fundamentos 3.0", issuer: "Data Science Academy", date: "ago/2023", hours: "12 h" },
-  { title: "Inglês · Módulo 1", issuer: "IFSul (Instituto Federal Sul-rio-grandense)", date: "jul/2023", hours: "60 h" },
+  { title: "Cybersecurity", img: "media/certs/cyber.png", issuer: "FIAP · NanoCourse", date: "set/2026", hours: "120 h" },
+  { title: "DevOps e Agile Culture", img: "media/certs/devops.png", issuer: "FIAP · NanoCourse", date: "set/2026", hours: "60 h" },
+  { title: "Gestão de Infraestrutura de T.I", img: "media/certs/infra.png", issuer: "FIAP · NanoCourse", date: "set/2026", hours: "20 h" },
+  { title: "Power BI for Business 2.0", img: "media/certs/powerbi.png", issuer: "Data Mundo", date: "jan/2024", hours: "" },
+  { title: "Big Data Fundamentos 3.0", img: "media/certs/bigdata.png", issuer: "Data Science Academy", date: "ago/2023", hours: "12 h" },
+  { title: "Inglês · Módulo 1", img: "media/certs/ingles.png", issuer: "IFSul (Instituto Federal Sul-rio-grandense)", date: "jul/2023", hours: "60 h" },
 ];

@@ -1,4 +1,4 @@
-:root{--bg:#0a0b0d;--panel:#14171c;--chumbo:#2a2f37;--line:#2a2f37;--navy:#0b1f3a;--navy2:#13335c;--text:#f4f6f8;--muted:#9aa3ad;--gold:#c9a24b}
+﻿:root{--bg:#0a0b0d;--panel:#14171c;--chumbo:#2a2f37;--line:#2a2f37;--navy:#0b1f3a;--navy2:#13335c;--text:#f4f6f8;--muted:#9aa3ad;--gold:#c9a24b}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
@@ -85,7 +85,7 @@ h2{font-size:clamp(1.6rem,3.5vw,2.2rem);margin-bottom:24px}
 .main-skill div{height:6px;background:var(--chumbo);border-radius:3px}.main-skill i{display:block;height:100%;background:var(--gold);border-radius:3px}
 .skill-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:36px}
 .note-line{color:var(--muted);margin-top:28px}
-.prof{grid-template-columns:120px 1fr 40px}.prof b{font-size:.78rem;color:var(--muted);text-align:right}
+.skill-row{grid-template-columns:120px 1fr 40px}.skill-row b{font-size:.78rem;color:var(--muted);text-align:right}
 .about p{max-width:70ch;color:var(--muted)}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:40px}
 .sub{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:14px}
@@ -98,6 +98,11 @@ h2{font-size:clamp(1.6rem,3.5vw,2.2rem);margin-bottom:24px}
 .prof{grid-template-columns:110px 1fr}.prof div{background:var(--chumbo)}
 .certs{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
 .certs li>*{display:flex;flex-direction:column;padding:14px 16px;border:1px solid var(--line);border-radius:10px;background:var(--panel);text-decoration:none;height:100%}
+.certs li{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:10px;background:var(--panel);overflow:hidden}
+.certs li>*{border:0;border-radius:0;height:auto}
+.cert-img{width:100%;aspect-ratio:4/3;object-fit:contain;background:#000;cursor:zoom-in;padding:0!important}
+.diploma{margin-top:8px;align-self:flex-start;background:none;border:1px solid var(--gold);color:var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;font:inherit;font-size:.85rem}
+.diploma:hover{background:var(--gold);color:#000}
 .certs a:hover{border-color:var(--gold)}.certs span{color:var(--muted);font-size:.85rem}
 @media(max-width:900px){.split{grid-template-columns:1fr}}
 .skills{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}

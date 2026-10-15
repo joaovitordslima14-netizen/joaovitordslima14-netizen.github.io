@@ -1,4 +1,4 @@
-(() => {
+﻿(() => {
   const P = window.PROFILE, list = window.PROJECTS;
   const $ = (s) => document.querySelector(s);
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -19,13 +19,13 @@
 
   $("#experience").innerHTML = window.EXPERIENCE.map((e) => `<li><b>${esc(e.role)}</b><span class="co">${esc(e.company)} · ${esc(e.type)}</span><span>${esc(e.period)}</span>${e.bullets.length ? `<ul class="bl">${e.bullets.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>` : ""}</li>`).join("");
 
-  const bar = (s) => `<div class="bar-row prof"><span>${esc(s.name)}</span><div><i style="width:${s.level}%"></i></div><b>${s.level}%</b></div>`;
+  const bar = (s) => `<div class="bar-row skill-row"><span>${esc(s.name)}</span><div><i style="width:${s.level}%"></i></div><b>${s.level}%</b></div>`;
   $("#main-skills").innerHTML = window.SKILLS.main.map((s) => `<div class="main-skill"><b>${s.level}%</b><span>${esc(s.name)}</span><div><i style="width:${s.level}%"></i></div></div>`).join("");
   $("#skill-groups").innerHTML = window.SKILLS.groups.map((g) => `<div class="skill-group"><h4 class="sub">${esc(g.title)}</h4>${g.items.map(bar).join("")}</div>`).join("");
   $("#languages").innerHTML = "<b>Idiomas:</b> " + window.SKILLS.languages.map((l) => `${esc(l.name)} (${esc(l.note)})`).join(" · ");
 
-  $("#education").innerHTML = window.EDUCATION.map((e) => `<li><b>${esc(e.title)}</b><span class="co">${esc(e.place)}</span><span>${esc(e.period)}${e.note ? " · " + esc(e.note) : ""}</span><em class="${e.status === "Concluído" ? "done" : ""}">${esc(e.status)}</em></li>`).join("");
-  $("#certs").innerHTML = window.CERTIFICATIONS.map((c) => `<li><div><b>${esc(c.title)}</b><span>${esc(c.issuer)}</span><span>${esc([c.date, c.hours].filter(Boolean).join(" · "))}</span></div></li>`).join("");
+  $("#education").innerHTML = window.EDUCATION.map((e) => `<li><b>${esc(e.title)}</b><span class="co">${esc(e.place)}</span><span>${esc(e.period)}${e.note ? " · " + esc(e.note) : ""}</span><em class="${e.status === "Concluído" ? "done" : ""}">${esc(e.status)}</em>${e.img ? `<button class="diploma" data-zoom="${esc(e.img)}">Ver diploma</button>` : ""}</li>`).join("");
+  $("#certs").innerHTML = window.CERTIFICATIONS.map((c) => `<li>${c.img ? `<img class="cert-img" loading="lazy" data-zoom="${esc(c.img)}" src="${esc(c.img)}" alt="Certificado ${esc(c.title)}">` : ""}<div><b>${esc(c.title)}</b><span>${esc(c.issuer)}</span><span>${esc([c.date, c.hours].filter(Boolean).join(" · "))}</span></div></li>`).join("");
 
   const win = (title, body, theme = "") =>
     `<figure class="shot mockshot"><div class="mock ${theme}"><div class="bar"><i></i><i></i><i></i></div><div class="body">${body}</div></div><figcaption>${esc(title)} · ilustração com dados fictícios</figcaption></figure>`;
