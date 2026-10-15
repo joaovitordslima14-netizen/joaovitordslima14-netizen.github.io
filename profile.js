@@ -73,29 +73,29 @@ window.EDUCATION = [
 
 window.SKILLS = {
   main: [
-    { name: "Power BI", level: 100 },
-    { name: "Python", level: 100 },
-    { name: "SQL Server", level: 75 },
-    { name: "DAX", level: 75 },
-    { name: "JavaScript", level: 75 },
-    { name: "PostgreSQL", level: 70 },
-    { name: "PHP", level: 65 },
-    { name: "DevOps", level: 65 },
-    { name: "Asterisk", level: 65 },
-    { name: "Cibersegurança", level: 60 },
-    { name: "Big Data", level: 60 },
+    { name: "Power BI", level: 99 },
+    { name: "Python", level: 95 },
+    { name: "Big Data", level: 90 },
+    { name: "DAX", level: 85 },
+    { name: "Cibersegurança", level: 85 },
+    { name: "JavaScript", level: 80 },
+    { name: "PostgreSQL", level: 80 },
+    { name: "DevOps", level: 80 },
+    { name: "PHP", level: 75 },
+    { name: "Asterisk", level: 75 },
+
   ],
   groups: [
     { title: "Dados e BI", items: [
-      { name: "Excel", level: 80 }, { name: "Excel VBA", level: 70 }, { name: "ETL", level: 70 },
-      { name: "MySQL", level: 70 }, { name: "Power Apps", level: 65 },
+      { name: "Excel", level: 85 }, { name: "Excel VBA", level: 70 }, { name: "ETL", level: 75 },
+      { name: "MySQL", level: 70 }, { name: "Power Apps", level: 75 },
     ] },
     { title: "Desenvolvimento", items: [
-      { name: "HTML e CSS", level: 75 }, { name: "APIs REST", level: 75 },
-      { name: "Node.js", level: 70 }, { name: "React", level: 70 }, { name: "Java", level: 70 }, { name: "C#", level: 70 }, { name: "C++", level: 60 },
+      { name: "HTML e CSS", level: 85 }, { name: "APIs REST", level: 70 },
+      { name: "Node.js", level: 75 }, { name: "React", level: 70 }, { name: "Java", level: 80 }, { name: "C#", level: 75 }, { name: "C++", level: 70 },
     ] },
     { title: "Infraestrutura, processos e ferramentas", items: [
-      { name: "Git", level: 75 }, { name: "Scrum e Kanban", level: 70 }, { name: "Linux", level: 65 }, { name: "Microsoft Intune", level: 60 },
+      { name: "Git", level: 85 }, { name: "Scrum e Kanban", level: 90 }, { name: "Linux", level: 85 }, { name: "Microsoft Intune", level: 90 },
     ] },
   ],
   languages: [
