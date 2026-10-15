@@ -5,37 +5,13 @@
     { type: "youtube", src: "ID_DO_VIDEO",                caption: "Demonstração" }
     { type: "image",   src: "media/minha-imagem.png",     caption: "Tela de pedidos" }
 */
-window.PROFILE = {
-  name: "João Vitor Lima",
-  role: "Desenvolvedor Full Stack",
-  tagline: "Construo sistemas que tiram a operação da planilha e colocam o negócio no controle.",
-  github: "https://github.com/joaovitordslima14-netizen",
-  whatsapp: "https://wa.me/5551991591976?text=" + encodeURIComponent("Olá João Vitor, vi seu portfólio e gostaria de conversar."),
-  phone: "+55 51 99159-1976",
-  linkedin: "https://www.linkedin.com/in/jo%C3%A3o-vitor-dos-santos-lima",
-};
-
-window.EDUCATION = [
-  { title: "Bacharelado em Ciência de Dados", place: "Cursando", period: "Previsão de conclusão: 2029", status: "Em andamento" },
-  { title: "Técnico em Desenvolvimento de Sistemas", place: "SENAI", period: "", status: "Concluído" },
-];
-
-window.PROFICIENCY = [
-  { name: "Power BI", level: 80 },
-  { name: "Excel", level: 85 },
-  { name: "SQL Server", level: 80 },
-  { name: "Git", level: 80 },
-];
-
-// Preencha com as certificações do LinkedIn: { title, issuer, date, url }
-window.CERTIFICATIONS = [];
-
 window.PROJECTS = [
   {
     id: "olimpios",
     title: "Barbearia Olimpios",
     category: "Agendamento",
     kind: "Aplicação web full stack",
+    role: "Desenvolvimento completo: back-end em Python/Flask, banco de dados, tempo real e interface.",
     summary:
       "Plataforma de agendamento online para barbearia: o cliente escolhe barbeiro, serviço e horário; a equipe gerencia a agenda em tempo real e acompanha relatórios.",
     benefits: [
@@ -63,6 +39,7 @@ window.PROJECTS = [
     title: "Star Life Legend",
     category: "Jogo",
     kind: "Jogo web jogável",
+    role: "Projeto autoral: arquitetura, modelagem de banco, regras de negócio com testes e interface.",
     summary:
       "Simulador de carreira de futebol: você cria um atleta aos 15 anos, treina, joga partidas 2D, administra finanças e constrói uma lenda temporada após temporada.",
     benefits: [
@@ -98,6 +75,7 @@ window.PROJECTS = [
     title: "Gestão de Produção e Estoque",
     category: "Indústria",
     kind: "Sistema de gestão industrial",
+    role: "API REST, modelagem PostgreSQL com migrações, autenticação, relatórios em PDF/Excel e telas.",
     summary:
       "Controle operacional de produção e estoque de peças: lotes, pesagens, reservas, clientes, pedidos e etiquetas imprimíveis, com rastreabilidade ponta a ponta.",
     benefits: [
@@ -124,6 +102,7 @@ window.PROJECTS = [
     title: "SystemINV",
     category: "Indústria",
     kind: "Inventário de almoxarifado",
+    role: "API em Node.js com SQL Server, autenticação por perfis, exportações e documentação técnica e de usuário.",
     summary:
       "Sistema de controle de estoque para almoxarifado com entrada, baixa, cadastro de itens, histórico completo e gestão de usuários por perfil.",
     benefits: [

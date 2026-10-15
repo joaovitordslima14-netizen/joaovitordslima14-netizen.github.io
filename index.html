@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>João Vitor Lima · Portfólio de Projetos</title>
-  <meta name="description" content="Portfólio de João Vitor Lima, desenvolvedor full stack: sistemas de agendamento, gestão industrial, estoque e jogos web.">
+  <title>João Vitor Lima · Desenvolvedor FullStack &amp; Data Scientist</title>
+  <meta name="description" content="Portfólio de João Vitor Lima: Desenvolvedor FullStack e Data Scientist com experiência em Power BI, Python, SQL, APIs e sistemas corporativos. Gravataí, RS.">
   <meta name="theme-color" content="#0a0b0d">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -12,8 +12,10 @@
   <header class="top">
     <a class="brand" href="#inicio">JV<span>.</span></a>
     <nav>
-      <a href="#projetos">Projetos</a>
       <a href="#sobre">Sobre</a>
+      <a href="#experiencia">Experiência</a>
+      <a href="#competencias">Competências</a>
+      <a href="#projetos">Projetos</a>
       <a href="#formacao">Formação</a>
       <a href="#contato">Contato</a>
     </nav>
@@ -22,38 +24,53 @@
   <main>
     <section class="hero" id="inicio">
       <p class="eyebrow" id="role"></p>
-      <h1>Software que resolve <em>problemas reais</em> do dia a dia.</h1>
+      <h1>João Vitor <em>Lima</em></h1>
       <p class="lead" id="tagline"></p>
+      <p class="meta"><span id="location"></span> · <span id="open"></span></p>
       <div class="cta">
-        <a class="btn primary" href="#projetos">Ver projetos</a>
+        <a class="btn wa" id="wa-hero" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <a class="btn primary" id="linkedin-hero" target="_blank" rel="noopener">Ver LinkedIn</a>
+        <a class="btn" href="#projetos">Ver projetos</a>
       </div>
       <ul class="stats" id="stats"></ul>
     </section>
 
+    <section id="sobre" class="about">
+      <h2>Sobre</h2>
+      <div id="about"></div>
+    </section>
+
+    <section id="experiencia">
+      <h2>Experiência profissional</h2>
+      <ul class="timeline big" id="experience"></ul>
+    </section>
+
+    <section id="competencias">
+      <h2>Competências</h2>
+      <h4 class="sub">Principais ferramentas e linguagens</h4>
+      <div class="main-skills" id="main-skills"></div>
+      <div class="skill-groups" id="skill-groups"></div>
+      <p class="note-line" id="languages"></p>
+    </section>
+
     <section id="projetos">
       <h2>Projetos</h2>
+      <p class="section-lead">Sistemas completos que construí do banco de dados à interface, mostrando na prática como aplico o que sei. Também atendo demandas sob encomenda.</p>
       <div class="filters" id="filters" role="tablist"></div>
       <div id="projects"></div>
     </section>
 
-    <section id="sobre" class="about">
-      <h2>Sobre</h2>
-      <p>Desenvolvo aplicações completas, do banco de dados à interface: APIs em Node.js e Python, bancos relacionais (PostgreSQL e SQL Server), autenticação segura e front-ends rápidos em React e JavaScript. Gosto de entregar sistemas que o usuário final entende sem treinamento, com documentação e testes.</p>
-      <ul class="skills" id="skills"></ul>
-    </section>
-
     <section id="formacao">
-      <h2>Formação e competências</h2>
-      <div class="split">
-        <div><h4 class="sub">Formação</h4><ul class="timeline" id="education"></ul></div>
-        <div><h4 class="sub">Ferramentas e proficiência</h4><div id="proficiency"></div></div>
-      </div>
-      <div id="certs-wrap" hidden><h4 class="sub" style="margin-top:36px">Certificações</h4><ul class="certs" id="certs"></ul></div>
+      <h2>Formação e certificações</h2>
+      <h4 class="sub">Formação acadêmica</h4>
+      <ul class="timeline" id="education"></ul>
+      <h4 class="sub" style="margin-top:36px">Certificações</h4>
+      <ul class="certs" id="certs"></ul>
     </section>
 
     <section id="contato" class="contact">
       <h2>Vamos conversar?</h2>
-      <p>Fale comigo pelo WhatsApp, conecte-se no LinkedIn ou veja mais código no GitHub.</p>
+      <p>Seja para uma vaga em desenvolvimento ou dados, ou para um projeto sob medida, é só chamar.</p>
       <div class="cta">
         <a class="btn wa" id="wa" target="_blank" rel="noopener">WhatsApp · <span id="phone"></span></a>
         <a class="btn" id="linkedin" target="_blank" rel="noopener">LinkedIn</a>
@@ -67,6 +84,7 @@
 
   <div class="lightbox" id="lightbox" hidden><button aria-label="Fechar">×</button><div id="lb-body"></div></div>
 
+  <script src="profile.js"></script>
   <script src="projects.js"></script>
   <script src="app.js"></script>
 </body>

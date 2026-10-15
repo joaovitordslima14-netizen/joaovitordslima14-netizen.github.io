@@ -5,28 +5,27 @@
 
   $("#role").textContent = P.role;
   $("#tagline").textContent = P.tagline;
+  $("#location").textContent = P.location;
+  $("#open").textContent = P.openTo;
   $("#github").href = P.github;
-  $("#linkedin").href = P.linkedin;
-
-  $("#education").innerHTML = window.EDUCATION.map((e) => `<li><b>${esc(e.title)}</b><span>${esc([e.place, e.period].filter(Boolean).join(" · "))}</span><em class="${e.status === "Concluído" ? "done" : ""}">${esc(e.status)}</em></li>`).join("");
-  $("#proficiency").innerHTML = window.PROFICIENCY.map((s) => `<div class="bar-row prof"><span>${esc(s.name)}</span><div><i style="width:${s.level}%"></i></div></div>`).join("");
-  const certs = window.CERTIFICATIONS || [];
-  if (certs.length) {
-    $("#certs-wrap").hidden = false;
-    $("#certs").innerHTML = certs.map((c) => `<li>${c.url ? `<a href="${esc(c.url)}" target="_blank" rel="noopener">` : "<div>"}<b>${esc(c.title)}</b><span>${esc([c.issuer, c.date].filter(Boolean).join(" · "))}</span>${c.url ? "</a>" : "</div>"}</li>`).join("");
-  }
-  $("#wa").href = $("#wa-float").href = P.whatsapp;
+  $("#linkedin").href = $("#linkedin-hero").href = P.linkedin;
+  $("#wa").href = $("#wa-float").href = $("#wa-hero").href = P.whatsapp;
   $("#phone").textContent = P.phone;
-  $(".brand").title = P.name;
+  $(".brand").title = P.fullName;
   $("#year").textContent = new Date().getFullYear();
 
-  const stack = [...new Set(list.flatMap((p) => p.stack))];
-  $("#stats").innerHTML = [
-    [list.length, "projetos"],
-    [stack.length, "tecnologias"],
-    [list.reduce((n, p) => n + p.features.length, 0), "funcionalidades"],
-  ].map(([n, l]) => `<li><b>${n}</b><span>${l}</span></li>`).join("");
-  $("#skills").innerHTML = stack.map((s) => `<li>${esc(s)}</li>`).join("");
+  $("#stats").innerHTML = window.HIGHLIGHTS.map((h) => `<li><b>${esc(h.value)}</b><span>${esc(h.label)}</span></li>`).join("");
+  $("#about").innerHTML = window.ABOUT.map((t) => `<p>${esc(t)}</p>`).join("");
+
+  $("#experience").innerHTML = window.EXPERIENCE.map((e) => `<li><b>${esc(e.role)}</b><span class="co">${esc(e.company)} · ${esc(e.type)}</span><span>${esc(e.period)}</span>${e.bullets.length ? `<ul class="bl">${e.bullets.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>` : ""}</li>`).join("");
+
+  const bar = (s) => `<div class="bar-row prof"><span>${esc(s.name)}</span><div><i style="width:${s.level}%"></i></div><b>${s.level}%</b></div>`;
+  $("#main-skills").innerHTML = window.SKILLS.main.map((s) => `<div class="main-skill"><b>${s.level}%</b><span>${esc(s.name)}</span><div><i style="width:${s.level}%"></i></div></div>`).join("");
+  $("#skill-groups").innerHTML = window.SKILLS.groups.map((g) => `<div class="skill-group"><h4 class="sub">${esc(g.title)}</h4>${g.items.map(bar).join("")}</div>`).join("");
+  $("#languages").innerHTML = "<b>Idiomas:</b> " + window.SKILLS.languages.map((l) => `${esc(l.name)} (${esc(l.note)})`).join(" · ");
+
+  $("#education").innerHTML = window.EDUCATION.map((e) => `<li><b>${esc(e.title)}</b><span class="co">${esc(e.place)}</span><span>${esc(e.period)}${e.note ? " · " + esc(e.note) : ""}</span><em class="${e.status === "Concluído" ? "done" : ""}">${esc(e.status)}</em></li>`).join("");
+  $("#certs").innerHTML = window.CERTIFICATIONS.map((c) => `<li><div><b>${esc(c.title)}</b><span>${esc(c.issuer)}</span><span>${esc([c.date, c.hours].filter(Boolean).join(" · "))}</span></div></li>`).join("");
 
   const win = (title, body, theme = "") =>
     `<figure class="shot mockshot"><div class="mock ${theme}"><div class="bar"><i></i><i></i><i></i></div><div class="body">${body}</div></div><figcaption>${esc(title)} · ilustração com dados fictícios</figcaption></figure>`;
@@ -104,6 +103,7 @@
           <span class="kind">${esc(p.kind)}</span>
           <h3>${p.logo ? `<img src="${esc(p.logo)}" alt="">` : ""}${esc(p.title)}</h3>
           <p class="summary">${esc(p.summary)}</p>
+          ${p.role ? `<p class="myrole"><b>Meu papel:</b> ${esc(p.role)}</p>` : ""}
           <h4>Benefícios</h4>
           <ul class="benefits">${p.benefits.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>
           <h4>Funcionalidades</h4>
