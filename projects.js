@@ -12,7 +12,23 @@ window.PROFILE = {
   github: "https://github.com/joaovitordslima14-netizen",
   whatsapp: "https://wa.me/5551991591976?text=" + encodeURIComponent("Olá João Vitor, vi seu portfólio e gostaria de conversar."),
   phone: "+55 51 99159-1976",
+  linkedin: "https://www.linkedin.com/in/jo%C3%A3o-vitor-dos-santos-lima",
 };
+
+window.EDUCATION = [
+  { title: "Bacharelado em Ciência de Dados", place: "Cursando", period: "Previsão de conclusão: 2029", status: "Em andamento" },
+  { title: "Técnico em Desenvolvimento de Sistemas", place: "SENAI", period: "", status: "Concluído" },
+];
+
+window.PROFICIENCY = [
+  { name: "Power BI", level: 80 },
+  { name: "Excel", level: 85 },
+  { name: "SQL Server", level: 80 },
+  { name: "Git", level: 80 },
+];
+
+// Preencha com as certificações do LinkedIn: { title, issuer, date, url }
+window.CERTIFICATIONS = [];
 
 window.PROJECTS = [
   {

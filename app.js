@@ -6,6 +6,15 @@
   $("#role").textContent = P.role;
   $("#tagline").textContent = P.tagline;
   $("#github").href = P.github;
+  $("#linkedin").href = P.linkedin;
+
+  $("#education").innerHTML = window.EDUCATION.map((e) => `<li><b>${esc(e.title)}</b><span>${esc([e.place, e.period].filter(Boolean).join(" · "))}</span><em class="${e.status === "Concluído" ? "done" : ""}">${esc(e.status)}</em></li>`).join("");
+  $("#proficiency").innerHTML = window.PROFICIENCY.map((s) => `<div class="bar-row prof"><span>${esc(s.name)}</span><div><i style="width:${s.level}%"></i></div></div>`).join("");
+  const certs = window.CERTIFICATIONS || [];
+  if (certs.length) {
+    $("#certs-wrap").hidden = false;
+    $("#certs").innerHTML = certs.map((c) => `<li>${c.url ? `<a href="${esc(c.url)}" target="_blank" rel="noopener">` : "<div>"}<b>${esc(c.title)}</b><span>${esc([c.issuer, c.date].filter(Boolean).join(" · "))}</span>${c.url ? "</a>" : "</div>"}</li>`).join("");
+  }
   $("#wa").href = $("#wa-float").href = P.whatsapp;
   $("#phone").textContent = P.phone;
   $(".brand").title = P.name;
